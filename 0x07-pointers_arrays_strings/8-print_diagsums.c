@@ -1,31 +1,32 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _strpbrk - matches any character specified
- * @s: This is the C string to be scanned.
- * @accept:character in str1 that matches one of the characters in str2
- *Return: string s that matches any character specified in accept
- **/
+ * print_diagsums - the sum of the two diagonals of a square matrix of integers
+ * @a: 2d array of chars
+ *@size: number matrix
+*Return: void
+ */
 
-char *_strpbrk(char *s, char *accept)
+void print_diagsums(int *a, int size)
 {
-	int j;
+	/*Declaring variables*/
+	int i;
+	int sum1, sum2;
 
-	while (*s != '\0') /*Declaring WHILE*/
+	sum1 = 0;
+	sum2 = 0;
+
+	i = 0;
+	while (i < size) /*number repetitions*/
 	{
-		j = 0;
-		while (accept[j] != '\0')  /*Evaluating *accept*/
-		{
-			if (*s == accept[j])
-			{
-				return (s);
-			}
+		/*sums for diagsums*/
+		sum1 = sum1 + *(a + i * size + i);
+		sum2 = sum2 + *(a + i * size + size - i - 1);
 
-			j++; /*add j+1*/
-		}
-
-		s++; /*add s+1*/
+		i++; /*add +1*/
 	}
-	return (0);
+
+	printf("%i, %i\n", sum1, sum2);
 
 }
