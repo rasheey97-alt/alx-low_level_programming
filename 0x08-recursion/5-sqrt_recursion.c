@@ -1,24 +1,44 @@
 #include "main.h"
 /**
- *_pow_recursion - returns the value of x raised to the power of y
- *@x: integer
- *@y: integer
- *Return: pow recursion
+ *_evaluate - evaluate function sqrt
+ *@i: interger
+ *@n: interger
+ *Return: evaluate sqrt
  */
 
-int _pow_recursion(int x, int y)
+int _evaluate(int i, int n)
 {
-if (y < 0) /*Base condition*/
-{
+/*Evaluate function*/
+if (n == 0 || n == 1)
+return (n);
+
+else if (i * i < n)
+return (_evaluate(i + 1, n));
+
+else if (i * i == n) /*Condiction base*/
+return (i);
+
+return (-1);
+
 return (-1);
 }
 
-else if (y != 0)
-return (x * _pow_recursion(x, y - 1)); /* Recursive call*/
+/**
+ *_sqrt_recursion - evaluate sqrt
+ *@n: interger
+ *Return: Sgrt_recursion
+*/
+
+int _sqrt_recursion(int n)
+{
+int i = 0;
+
+if (i < 0) /*If n is negative*/
+return (-1);
 
 else
-return (1);
+{
+return (_evaluate(i, n)); /*Recursive call*/
 }
-© 2022 GitHub, Inc.
-Terms
-Pr
+
+}
