@@ -78,3 +78,27 @@ int endIndex(char *s, int index)
 		index++;
 	return (index);
 }
+
+/**
+ * countWords - counts numbers of words in string
+ * @s: input string
+ * Return: number of words
+ */
+int countWords(char *s)
+{
+	int wordOn = 0;
+	int words = 0;
+
+	while (*s)
+	{
+		if (isSpace(*s) && wordOn)
+			wordOn = 0;
+		else if (!isSpace(*s) && !wordOn)
+		{
+			wordOn = 1;
+			words++;
+		}
+		s++;
+	}
+	return (words);
+}
